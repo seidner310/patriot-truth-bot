@@ -56,14 +56,12 @@ const Home: React.FC = () => {
           <div 
             ref={chatContainerRef}
             className="overflow-y-auto p-4 space-y-6 relative"
-            style={{ height: 'calc(100vh - 350px)', minHeight: '300px' }}
+            style={{ 
+              height: 'calc(100vh - 350px)', 
+              minHeight: '300px',
+              background: 'linear-gradient(135deg, rgba(221, 229, 253, 0.3) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(250, 216, 216, 0.3) 100%)'
+            }}
           >
-            <div className="absolute top-0 left-0 w-full h-full opacity-5" style={{ 
-              backgroundImage: `url("/src/assets/flag-image.svg")`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              zIndex: 0
-            }}></div>
             <div className="relative z-10">
               {messages.map((message) => (
                 <ChatMessage key={message.id || message.timestamp?.toISOString()} message={message} />
