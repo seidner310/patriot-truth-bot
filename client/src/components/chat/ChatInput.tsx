@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Send, X } from 'lucide-react';
+import { Send, X, Flag } from 'lucide-react';
 
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
@@ -24,15 +24,17 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading }) => {
   };
 
   return (
-    <div className="border-t border-gray-200 p-4">
+    <div className="border-t border-gray-200 p-4" 
+         style={{ background: 'linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,245,255,1) 100%)' }}>
       <form onSubmit={handleSubmit} className="flex items-center space-x-2">
+        <Flag className="h-4 w-4 text-secondary-600 flex-shrink-0 hidden md:block" />
         <div className="relative flex-1">
           <Input
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Ask about facts, science, or claims you've heard..."
-            className="w-full py-2 px-4 pr-10 border border-gray-300 rounded-full"
+            placeholder="Ask for facts or to verify claims..."
+            className="w-full py-2 px-4 pr-10 border border-primary-200 shadow-sm rounded-full focus:border-primary-500 focus:ring-1 focus:ring-primary-500"
             disabled={isLoading}
           />
           {message && (
@@ -51,7 +53,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSendMessage, isLoading }) => {
         <Button
           type="submit"
           size="icon"
-          className="bg-primary-600 text-white p-2 rounded-full hover:bg-primary-700 transition flex items-center justify-center w-10 h-10"
+          className="bg-primary-600 text-white p-2 rounded-full hover:bg-primary-700 transition flex items-center justify-center w-10 h-10 shadow-md"
           disabled={isLoading || !message.trim()}
           aria-label="Send message"
         >

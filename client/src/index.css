@@ -3,6 +3,65 @@
 @tailwind utilities;
 
 :root {
+  --color-primary-50: #f0f4fe;
+  --color-primary-100: #dde5fd;
+  --color-primary-200: #c1d0fc;
+  --color-primary-300: #9ab3f9;
+  --color-primary-400: #798df4;
+  --color-primary-500: #3b4ded;
+  --color-primary-600: #0a23e4;
+  --color-primary-700: #061bc9;
+  --color-primary-800: #0d1ca3;
+  --color-primary-900: #111d80;
+  
+  --color-secondary-50: #fcf0f0;
+  --color-secondary-100: #fad8d8;
+  --color-secondary-200: #f6b9b9;
+  --color-secondary-300: #f08f8f;
+  --color-secondary-400: #e76363;
+  --color-secondary-500: #db3c3c;
+  --color-secondary-600: #ca2323;
+  --color-secondary-700: #a71c1c;
+  --color-secondary-800: #891c1c;
+  --color-secondary-900: #731d1d;
+}
+
+/* Patriotic theme overrides */
+.patriot-header {
+  background: linear-gradient(to right, #3b4ded, #ffffff, #db3c3c);
+  border-bottom: 2px solid #0a23e4;
+}
+
+.patriot-icon {
+  color: #ffffff;
+  background-color: #0a23e4;
+}
+
+.patriot-footer {
+  background: linear-gradient(to right, #3b4ded, #ffffff, #db3c3c);
+  background-size: 100% 4px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.patriot-message {
+  border-left: 3px solid #0a23e4;
+}
+
+.user-message {
+  border-right: 3px solid #db3c3c;
+}
+
+.fact-card {
+  border-color: #0a23e4 !important;
+  box-shadow: 0 2px 4px rgba(10, 35, 228, 0.1);
+}
+
+.source-tag {
+  color: #db3c3c;
+}
+
+:root {
       --background: 0 0% 100%;
 --foreground: 20 14.3% 4.1%;
 --muted: 60 4.8% 95.9%;

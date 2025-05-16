@@ -7,8 +7,18 @@ export function getWelcomeMessage(): Message {
   return {
     id: 'welcome',
     role: 'assistant',
-    content: "I provide factual, evidence-based information to help you navigate complex topics. Ask me about scientific concepts or to fact-check claims you've heard.",
+    content: "Welcome, patriot! I provide fact-based, verified information to help you understand the truth. Ask me about any topic, and I'll give you straight facts backed by reliable sources.",
     timestamp: new Date(),
+    factCard: {
+      title: "PATRIOT TRUTHBOT MISSION",
+      type: "key_facts",
+      facts: [
+        "Delivering fact-based information without political bias",
+        "Sourcing from verified, reputable publications",
+        "Respecting American values while prioritizing truth",
+        "Providing clear evidence for all claims"
+      ]
+    }
   };
 }
 
@@ -34,5 +44,11 @@ export function validateMessage(message: string): { isValid: boolean; reason?: s
 export function formatMessageContent(content: string): string {
   // Replace URLs with clickable links
   const urlRegex = /(https?:\/\/[^\s]+)/g;
-  return content.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">$1</a>');
+  content = content.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">$1</a>');
+  
+  // Highlight American values with patriotic styling
+  const americanValuesRegex = /\b(freedom|liberty|democracy|constitution|rights|justice|equality|america|united states|usa)\b/gi;
+  content = content.replace(americanValuesRegex, '<span class="font-semibold text-primary-700">$1</span>');
+  
+  return content;
 }
