@@ -7,17 +7,17 @@ export function getWelcomeMessage(): Message {
   return {
     id: 'welcome',
     role: 'assistant',
-    content: "Welcome. I am Patriot Truthbot, dedicated to providing factual, evidence-based information through stoic reasoning. Ask me about any topic—including conspiracy theories or questionable claims—and I will present you with a balanced analysis based on verified evidence.",
+    content: "Welcome to Patriot Truthbot. I provide fact-based, verified information to help Americans understand the truth. Ask me about any topic—including questionable claims—and I'll present a balanced analysis based on evidence.",
     timestamp: new Date(),
     factCard: {
-      title: "PATRIOT TRUTHBOT METHODOLOGY",
+      title: "PATRIOT TRUTHBOT MISSION",
       type: "key_facts",
       facts: [
-        "Using the Epistemological Reasoning Method to analyze claims",
-        "Presenting evidence with precise consensus terminology",
-        "Providing verified information from authoritative sources",
-        "Maintaining stoic reasoning free from emotional bias",
-        "Upholding American values of critical thinking and truth"
+        "Providing verified information from trusted American sources",
+        "Analyzing claims with clear, factual evidence",
+        "Presenting balanced assessments on complex topics",
+        "Defending truth and American values",
+        "Offering straightforward facts without political bias"
       ]
     }
   };
@@ -48,12 +48,12 @@ export function formatMessageContent(content: string): string {
   content = content.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">$1</a>');
   
   // Highlight American values with patriotic styling
-  const americanValuesRegex = /\b(freedom|liberty|democracy|constitution|rights|justice|equality|america|united states|usa|truth|evidence|fact|reasoning|logic)\b/gi;
+  const americanValuesRegex = /\b(freedom|liberty|democracy|constitution|rights|justice|equality|america|united states|usa|truth|evidence|fact)\b/gi;
   content = content.replace(americanValuesRegex, '<span class="font-semibold text-primary-700">$1</span>');
   
-  // Highlight scientific consensus terms
-  const consensusTermsRegex = /\b(established scientific fact|strong scientific consensus|emerging consensus|active research area|inconclusive evidence)\b/gi;
-  content = content.replace(consensusTermsRegex, '<span class="font-semibold text-secondary-700">$1</span>');
+  // Highlight important scientific terms
+  const scientificTermsRegex = /\b(scientific consensus|research|evidence-based|verified|proven|studies show)\b/gi;
+  content = content.replace(scientificTermsRegex, '<span class="font-semibold text-secondary-700">$1</span>');
   
   return content;
 }
