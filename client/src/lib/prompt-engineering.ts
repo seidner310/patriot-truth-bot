@@ -7,16 +7,17 @@ export function getWelcomeMessage(): Message {
   return {
     id: 'welcome',
     role: 'assistant',
-    content: "Welcome, patriot! I provide fact-based, verified information to help you understand the truth. Ask me about any topic, and I'll give you straight facts backed by reliable sources.",
+    content: "Welcome. I am Patriot Truthbot, dedicated to providing factual, evidence-based information through stoic reasoning. Ask me about any topic—including conspiracy theories or questionable claims—and I will present you with a balanced analysis based on verified evidence.",
     timestamp: new Date(),
     factCard: {
-      title: "PATRIOT TRUTHBOT MISSION",
+      title: "PATRIOT TRUTHBOT METHODOLOGY",
       type: "key_facts",
       facts: [
-        "Delivering fact-based information without political bias",
-        "Sourcing from verified, reputable publications",
-        "Respecting American values while prioritizing truth",
-        "Providing clear evidence for all claims"
+        "Using the Epistemological Reasoning Method to analyze claims",
+        "Presenting evidence with precise consensus terminology",
+        "Providing verified information from authoritative sources",
+        "Maintaining stoic reasoning free from emotional bias",
+        "Upholding American values of critical thinking and truth"
       ]
     }
   };
@@ -47,8 +48,12 @@ export function formatMessageContent(content: string): string {
   content = content.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:underline">$1</a>');
   
   // Highlight American values with patriotic styling
-  const americanValuesRegex = /\b(freedom|liberty|democracy|constitution|rights|justice|equality|america|united states|usa)\b/gi;
+  const americanValuesRegex = /\b(freedom|liberty|democracy|constitution|rights|justice|equality|america|united states|usa|truth|evidence|fact|reasoning|logic)\b/gi;
   content = content.replace(americanValuesRegex, '<span class="font-semibold text-primary-700">$1</span>');
+  
+  // Highlight scientific consensus terms
+  const consensusTermsRegex = /\b(established scientific fact|strong scientific consensus|emerging consensus|active research area|inconclusive evidence)\b/gi;
+  content = content.replace(consensusTermsRegex, '<span class="font-semibold text-secondary-700">$1</span>');
   
   return content;
 }
