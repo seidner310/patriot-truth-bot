@@ -31,7 +31,13 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
             <div className="absolute top-0 left-0 h-full w-1 bg-primary-500"></div>
           )}
           
-          <p className="text-gray-800" dangerouslySetInnerHTML={{ __html: message.content }} />
+          <div className="text-gray-800 message-content">
+            {isUser ? (
+              <p dangerouslySetInnerHTML={{ __html: message.content }} />
+            ) : (
+              <div className="whitespace-pre-line" dangerouslySetInnerHTML={{ __html: message.content }} />
+            )}
+          </div>
           
           {message.factCard && (
             <div className="fact-card bg-white p-3 mt-3 rounded border shadow-sm relative overflow-hidden">

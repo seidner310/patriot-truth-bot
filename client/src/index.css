@@ -26,6 +26,26 @@
   --color-secondary-900: #731d1d;
 }
 
+/* Styling for bullet points in chat messages */
+.message-content {
+  line-height: 1.6;
+}
+
+.message-content .whitespace-pre-line {
+  white-space: pre-line;
+}
+
+.message-content p {
+  margin-bottom: 0.75rem;
+}
+
+/* Improve spacing for bullet points */
+.patriot-message .message-content ul,
+.patriot-message .message-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 /* Patriotic theme overrides */
 .patriot-header {
   background: linear-gradient(to right, #3b4ded, #ffffff, #db3c3c);

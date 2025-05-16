@@ -7,7 +7,7 @@ export function getWelcomeMessage(): Message {
   return {
     id: 'welcome',
     role: 'assistant',
-    content: "Welcome to Patriot Truthbot. I provide fact-based, verified information to help Americans understand the truth. Ask me about any topic—including questionable claims—and I'll present a balanced analysis based on evidence.",
+    content: "Welcome to Patriot Truthbot. I provide fact-based, verified information to help Americans understand the truth. Ask me about any topic—including questionable claims—and I'll present a balanced unbiased analysis based on evidence.",
     timestamp: new Date(),
     factCard: {
       title: "PATRIOT TRUTHBOT MISSION",
