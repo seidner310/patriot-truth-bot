@@ -28,9 +28,9 @@ const Home: React.FC = () => {
           <div className="p-4 border-b relative overflow-hidden" 
                style={{ background: 'linear-gradient(135deg, rgba(221, 229, 253, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(250, 216, 216, 0.9) 100%)' }}>
             <div className="absolute top-0 left-0 w-full h-full opacity-10" style={{ 
-              backgroundImage: `url("/src/assets/flag-image.svg")`,
+              backgroundImage: `url("/src/assets/flag-small.svg")`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundPosition: 'bottom',
               zIndex: 0
             }}></div>
             <div className="flex items-start space-x-3 relative z-10">
@@ -39,15 +39,10 @@ const Home: React.FC = () => {
               </div>
               <div>
                 <h2 className="font-bold text-gray-800">WELCOME TO PATRIOT TRUTHBOT</h2>
-                <p className="text-sm text-gray-600 mt-1">
-                  I provide fact-based, evidence-backed information to defend truth and American values. 
-                  Ask me about any topic and I'll provide clear facts without political bias.
-                </p>
+                
               </div>
               <div className="ml-auto">
-                <div className="rounded-full p-2 patriot-icon">
-                  <Shield className="h-5 w-5" />
-                </div>
+                
               </div>
             </div>
           </div>
