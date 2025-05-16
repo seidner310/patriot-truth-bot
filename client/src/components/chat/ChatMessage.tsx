@@ -12,22 +12,32 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
   
   return (
     <div className={`flex ${isUser ? 'flex-row-reverse' : ''} items-start space-x-2 ${isUser ? 'space-x-reverse' : ''} ${isUser ? 'user-message' : 'patriot-message'}`}>
-      <div className={`w-8 h-8 rounded-full ${isUser ? 'bg-secondary-100' : 'patriot-icon'} flex items-center justify-center flex-shrink-0`}>
+      <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0`}>
         {isUser ? (
-          <User className="h-4 w-4 text-secondary-600" />
+          <div className="w-full h-full bg-secondary-100 rounded-full flex items-center justify-center">
+            <User className="h-4 w-4 text-secondary-600" />
+          </div>
         ) : (
-          <Shield className="h-4 w-4 text-white" />
+          <img src="/src/assets/flag-small.svg" alt="American Flag" className="w-full h-full rounded-full shadow-sm object-cover" />
         )}
       </div>
       
       <div className="flex flex-col max-w-[85%]">
-        <div className={`${isUser ? 'bg-secondary-50' : 'bg-primary-50'} rounded-lg p-3 shadow-sm`}>
+        <div className={`${isUser ? 'bg-secondary-50' : 'bg-primary-50'} rounded-lg p-3 shadow-sm relative overflow-hidden`}>
+          {!isUser && (
+            <div className="absolute top-0 right-0 h-full w-1 bg-secondary-500"></div>
+          )}
+          {isUser && (
+            <div className="absolute top-0 left-0 h-full w-1 bg-primary-500"></div>
+          )}
+          
           <p className="text-gray-800" dangerouslySetInnerHTML={{ __html: message.content }} />
           
           {message.factCard && (
-            <div className="fact-card bg-white p-3 mt-3 rounded border shadow-sm">
+            <div className="fact-card bg-white p-3 mt-3 rounded border shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1" style={{ background: 'linear-gradient(to right, #3b4ded, #ffffff, #db3c3c)' }}></div>
               <h4 className="font-bold text-sm text-primary-700 flex items-center">
-                <Flag className="h-3 w-3 text-secondary-600 mr-1" />
+                <img src="/src/assets/flag-small.svg" alt="American Flag" className="h-4 w-auto mr-2 shadow-sm" />
                 {message.factCard.title}
               </h4>
               <ul className="text-sm mt-1 space-y-1 text-gray-700">
